@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- <meta http-equiv="refresh" content="0.01"> -->
+	<title></title>
+	<style type="text/css">
+		img
+		{
+			display: block;
+			margin: auto;
+		}
+		body
+		{
+			background-color: #383F51;
+			font-family: Arial;
+		}
+		h1
+		{
+			text-align: center;
+			color: white;
+			letter-spacing: 2px;
+		}
+	</style>
+</head>
+{%load static%}
+<body>
+	<div id="auto">
+		<h1> Live Stream from ashish Mac</h1>
+		<img src="http://192.168.0.102:8000/media/image_now.png" id="screen">
+	</div>
+</body>
+	
+	<script type="text/javascript">
+			setInterval(function() {
+			var myImageElement = document.getElementById('screen');
+			var image_buffer = new Image();
+			image_buffer.src = 'http://192.168.0.102:8000/media/image_now.png?rand=' + Math.random();
+			image_buffer.onload = function(){
+				myImageElement.src = image_buffer.src;
+			}
+			
+			},50 );
+	</script>
+</html>
